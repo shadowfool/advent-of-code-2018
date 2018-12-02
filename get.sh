@@ -1,11 +1,5 @@
 DD=$(date +%-d)
-cookie=`cat .secrets.env`
+cookie=$(< .secrets.env)
 session="Cookie: $cookie"
-
-curl https://adventofcode.com/2018/day/$DD | pbcopy
-touch ./prompts/day_$DD.html
-pbpaste > ./prompts/day_$DD.html
-
-curl  https://adventofcode.com/2018/day/$DD/input --header "$session" | pbcopy
-touch ./inputs/day_$DD.txt
-pbpaste > ./inputs/day_$DD.txt
+curl https://adventofcode.com/2018/day/$DD > prompts/day_$DD.html
+curl https://adventofcode.com/2018/day/$DD/input --header "$session" > inputs/day_$DD.txt
