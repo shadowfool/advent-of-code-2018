@@ -23,3 +23,24 @@ const countCharacters = ( item ) => {
 input.forEach(countCharacters);
 
 console.log(totalCounts.doubles * totalCounts.triples)
+
+
+// pt 2 
+for(let i = 0; i < input.length; i++){
+    for(let j = 0; j < input.length; j++){
+        const cur = input[i];
+        const comp = input[j];
+        let diff = 0;
+        let theSame = '';
+        for(let k = 0; k < cur.length; k++){
+          if(cur[k] !== comp[k]){
+            diff = diff + 1;
+          } else {
+            theSame = theSame + cur[k];
+          }
+        }
+        if( diff === 1){
+            console.log(theSame)
+        }
+    }
+}
