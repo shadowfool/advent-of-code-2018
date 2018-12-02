@@ -1,5 +1,5 @@
 DD=$(date +%-d)
-cookie=""
+cookie=`cat .secrets.env`
 session="Cookie: $cookie"
 
 curl https://adventofcode.com/2018/day/$DD | pbcopy
