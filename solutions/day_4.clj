@@ -5,12 +5,8 @@
 ( def sorted_list 
     ( sort-by 
         :date
-        ( map 
-            ( 
-                fn s ( 
-                    { :date ( get ( str/split s #"" ) 0 ) } 
-                )
-            )
+        ( map
+            ( fn [ s ] { :date ( get ( str/split s #"\]" ) 0 ) :message ( get ( str/split s #"\]" ) 1 ) }  )
             ( clojure.string/split-lines input )
         ) 
     ) 
